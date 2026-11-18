@@ -1,0 +1,346 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #ECEAE4;
+  --surface-primary: #F7F6F2;
+  --surface-secondary: #DFDDD6;
+  --surface-inverted: #161715;
+  --surface-inverted-elevated: #21231F;
+  --surface-receipt: #10110F;
+  --text-primary: #141513;
+  --text-muted: #575853;
+  --text-on-dark: #F4F3EF;
+  --text-on-dark-muted: #A2A39D;
+  --accent-primary: #C83E2B;
+  --accent-primary-hover: #A83121;
+  --accent-primary-tint: rgba(200, 62, 43, 0.14);
+  --accent-secondary: #3E4A42;
+  --border-hairline: #CFCBC2;
+  --border-dark: #2C2E2A;
+  --success: #1E6B4B;
+  --success-bg: #E3EFE9;
+  --warning: #B86B11;
+  --warning-bg: #F7ECDC;
+  --error: #B91C1C;
+  --error-bg: #FCE8E8;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --joint-gap: 10px;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #111210;
+  --surface-primary: #191B18;
+  --surface-secondary: #222521;
+  --text-primary: #F4F3EF;
+  --text-muted: #A4A69F;
+  --border-hairline: #2D302B;
+  --success-bg: #152E24;
+  --warning-bg: #33220E;
+  --error-bg: #361414;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+::selection {
+  background-color: var(--accent-primary);
+  color: #FFFFFF;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body), sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.font-display {
+  font-family: var(--font-display), sans-serif;
+}
+
+.font-mono-tech {
+  font-family: var(--font-mono), monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Range input styling matching #C83E2B engineering laser */
+input[type="range"].arch-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: #343731;
+  border-radius: 2px;
+  outline: none;
+}
+
+input[type="range"].arch-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 2px;
+  background: var(--accent-primary);
+  border: 2px solid #FFFFFF;
+  cursor: pointer;
+}
+
+input[type="range"].arch-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 2px;
+  background: var(--accent-primary);
+  border: 2px solid #FFFFFF;
+  cursor: pointer;
+}
+
+/* 3D Isometric Configurator — Precision CAD Rail Dock & Section Wipe */
+@keyframes wingCadDockIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(var(--wing-tx, 22px), var(--wing-ty, 13px), 0);
+    filter: brightness(0.42) contrast(1.25);
+  }
+  35% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0);
+    filter: brightness(1) contrast(1);
+  }
+}
+
+@keyframes wingSectionWipeIn {
+  0% {
+    clip-path: inset(var(--wipe-top, 0%) var(--wipe-right, 0%) var(--wipe-bottom, 0%) var(--wipe-left, 0%));
+  }
+  100% {
+    clip-path: inset(0% 0% 0% 0%);
+  }
+}
+
+@keyframes wingCadRetractOut {
+  0% {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0);
+    filter: brightness(1) contrast(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--wing-tx, 22px), var(--wing-ty, 13px), 0);
+    filter: brightness(0.45) contrast(1.2);
+  }
+}
+
+@keyframes baseDampedLockA {
+  0% { transform: translate3d(0, 0, 0); }
+  28% { transform: translate3d(0, 1.2px, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+@keyframes baseDampedLockB {
+  0% { transform: translate3d(0, 0, 0); }
+  28% { transform: translate3d(0, 1.2px, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+@keyframes baseDampedLockC {
+  0% { transform: translate3d(0, 0, 0); }
+  28% { transform: translate3d(0, 1.2px, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+@keyframes typologyCadEnter {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+    clip-path: polygon(0% 0%, 18% 0%, 0% 24%, 0% 0%);
+    filter: brightness(0.55) contrast(1.18);
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    clip-path: polygon(0% 0%, 220% 0%, 0% 220%, 0% 0%);
+    filter: brightness(1) contrast(1);
+  }
+}
+
+@keyframes typologyCadExit {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: brightness(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -14px, 0);
+    filter: brightness(0.45);
+  }
+}
+
+@keyframes cadLaserSweepIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(var(--scan-tx, 70px), var(--scan-ty, 42px), 0);
+  }
+  18% {
+    opacity: 0.95;
+  }
+  78% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0px, 0px, 0);
+  }
+}
+
+@keyframes cadLaserSweepOut {
+  0% {
+    opacity: 0.95;
+    transform: translate3d(0px, 0px, 0);
+  }
+  70% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--scan-tx, 70px), var(--scan-ty, 42px), 0);
+  }
+}
+
+@keyframes seamPulseIn {
+  0% {
+    opacity: 0;
+    stroke-dashoffset: 100;
+  }
+  22% {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+  70% {
+    opacity: 0.85;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    opacity: 0;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes seamPulseOut {
+  0% {
+    opacity: 0.95;
+    stroke-dashoffset: 0;
+  }
+  65% {
+    opacity: 0.75;
+    stroke-dashoffset: 65;
+  }
+  100% {
+    opacity: 0;
+    stroke-dashoffset: 100;
+  }
+}
+
+.axon-wing-enter {
+  animation: wingCadDockIn 540ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity, filter;
+}
+
+.axon-wing-enter .axon-wing-wipe {
+  animation: wingSectionWipeIn 520ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: clip-path;
+}
+
+.axon-wing-exit {
+  animation: wingCadRetractOut 340ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  will-change: transform, opacity, filter;
+}
+
+.axon-recoil-1 {
+  animation: baseDampedLockA 380ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.axon-recoil-2 {
+  animation: baseDampedLockB 380ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.axon-recoil-3 {
+  animation: baseDampedLockC 380ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.axon-typology-enter {
+  animation: typologyCadEnter 580ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity, clip-path, filter;
+}
+
+.axon-typology-exit {
+  animation: typologyCadExit 360ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  will-change: transform, opacity, filter;
+}
+
+.axon-seam-group-enter .axon-cad-laser-sweep {
+  animation: cadLaserSweepIn 540ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.axon-seam-group-enter .axon-seam-pulse {
+  stroke-dasharray: 100;
+  animation: seamPulseIn 680ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.axon-seam-group-exit .axon-cad-laser-sweep {
+  animation: cadLaserSweepOut 360ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.axon-seam-group-exit .axon-seam-pulse {
+  stroke-dasharray: 100;
+  animation: seamPulseOut 440ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Clean architectural PDF / Print spec sheet for Cost Calculator */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #141513 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  header,
+  footer {
+    display: none !important;
+  }
+}
