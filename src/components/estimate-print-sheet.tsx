@@ -286,7 +286,8 @@ export function EstimatePrintSheet({ state, breakdown }: EstimatePrintSheetProps
                   </td>
                   <td className="py-1.5 pr-2 font-mono-tech whitespace-nowrap">
                     {lang === 'pl' ? 'Tydz.' : 'Wk'} {phase.startWeek}
-                    {phase.durationWeeks > 1 ? `–${phase.endWeek}` : ''} ({phase.durationWeeks}t)
+                    {phase.durationWeeks > 1 ? `–${phase.endWeek}` : ''} ({phase.durationWeeks}
+                    {lang === 'pl' ? 't' : 'w'})
                   </td>
                   <td className="py-1.5 text-right font-mono-tech text-[9.5px]">
                     {phase.isParallel
@@ -378,7 +379,10 @@ export function EstimatePrintSheet({ state, breakdown }: EstimatePrintSheetProps
 
       {/* Print Footer */}
       <div className="pt-2 border-t border-[#CFCBC2] flex justify-between text-[9.5px] font-mono-tech text-[#575853]">
-        <span>KRAWCZYK & PARTNERZY · biuro@krawczykpartnerzy.pl · Warszawa / Kraków</span>
+        <span>
+          KRAWCZYK & PARTNERZY · biuro@krawczykpartnerzy.pl ·{' '}
+          {lang === 'pl' ? 'Warszawa / Kraków' : 'Warsaw / Krakow'}
+        </span>
         <span>
           {lang === 'pl'
             ? 'Wycena ma charakter szacunkowy i wymaga inwentaryzacji na miejscu.'
