@@ -1093,7 +1093,8 @@ export function AxonometricPreview({
         </div>
         <span className="text-white/60">{areaM2} m²</span>
       </div>
-      <div className="relative w-full aspect-[1200/896] bg-[#10110F] overflow-hidden select-none isolate">
+      <div className="relative">
+        <div className="relative w-full aspect-[1200/896] bg-[#10110F] overflow-hidden select-none isolate">
         {TYPOLOGY_MEDIA.map((media) => {
           const isActiveTypology = media.id === activeStage.typology;
           const wasTypologyVisited = visitedTypologies.includes(media.id);
@@ -1462,8 +1463,9 @@ export function AxonometricPreview({
             </div>
           );
         })}
+        </div>
         {(isSecondary || hasCarpentry || hasDuctedAc || hasSmartDali) && (
-          <div className="absolute bottom-3 left-3 right-3 z-30 flex flex-wrap gap-1.5 pointer-events-none">
+          <div className="px-4 pt-2.5 pb-1 flex flex-wrap gap-1.5 pointer-events-none sm:px-0 sm:pt-0 sm:pb-0 sm:absolute sm:bottom-3 sm:left-3 sm:right-3 sm:z-30">
             {isSecondary && (
               <span className="px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider bg-[#10110F]/90 border border-[#C83E2B] text-[#F28C7E] rounded-[2px]">
                 {lang === 'pl' ? 'Stan wtórny' : 'Renovation'}
